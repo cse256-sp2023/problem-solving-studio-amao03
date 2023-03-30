@@ -476,7 +476,10 @@ function open_user_select_dialog(to_populate_id) {
 // - id_prefix is the required id prefix that will be attached to all element ids.
 // - select_button_text is the text that will go on the button
 // - on_user_change is an additional function you can pass in, which will be called each time a user is selected.
-function define_new_user_select_field(id_prefix, select_button_text, on_user_change = function(selected_user){}){
+function define_new_user_select_field(id_prefix, select_button_text, on_user_change = function(selected_user){
+    $('#effective_permission').attr('username', selected_user);
+    $('#effective_permission').attr('filepath', '/C/presentation_documents/important_file.txt');
+}){
     // Make the element:
     let sel_section = $(`<div id="${id_prefix}_line" class="section">
             <span id="${id_prefix}_field" class="ui-widget-content" style="width: 80%;display: inline-block;">&nbsp</span>
@@ -498,6 +501,8 @@ function define_new_user_select_field(id_prefix, select_button_text, on_user_cha
 
     return sel_section
 }
+
+
 
 //---- misc. ----
 
